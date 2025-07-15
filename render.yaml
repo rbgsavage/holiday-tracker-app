@@ -1,10 +1,10 @@
-
 services:
   - type: web
     name: holiday-tracker-app
     env: python
-    buildCommand: ""
-    startCommand: python app.py
+    buildCommand: cd holiday_tracker_app && pip install -r requirements.txt
+    startCommand: cd holiday_tracker_app && python app.py
     envVars:
       - key: FLASK_ENV
         value: production
+
