@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin/Reviewer Dashboard</title>
+</head>
+<body>
+    <h2>Welcome, Admin or Reviewer</h2>
+
+    <h3>Registered Users</h3>
+    <ul>
+        {% for u in users %}
+            <li>
+                Username: {{ u.username }} | Role: {{ u.role }}
+            </li>
+        {% else %}
+            <li>No users found.</li>
+        {% endfor %}
+    </ul>
+
+    <br>
+    <a href="/logout">Logout</a>
+</body>
+</html>

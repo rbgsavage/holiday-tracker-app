@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manager Dashboard</title>
+</head>
+<body>
+    <h2>Welcome, Manager</h2>
+
+    <h3>Pending Hours for Approval</h3>
+    <ul>
+        {% for h in pending_hours %}
+            <li>
+                User ID: {{ h.user_id }} | Month: {{ h.month }} | Hours: {{ h.hours }}
+                <a href="/approve_hours/{{ h.id }}">Approve</a>
+            </li>
+        {% else %}
+            <li>No pending hours to approve.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Pending Holiday Requests</h3>
+    <ul>
+        {% for r in pending_holidays %}
+            <li>
+                User ID: {{ r.user_id }} | From: {{ r.start_date }} to {{ r.end_date }}
+                <a href="/approve_holiday/{{ r.id }}">Approve</a>
+            </li>
+        {% else %}
+            <li>No pending holiday requests.</li>
+        {% endfor %}
+    </ul>
+
+    <br>
+    <a href="/logout">Logout</a>
+</body>
+</html>
